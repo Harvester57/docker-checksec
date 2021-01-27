@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.9-buster
 
 LABEL maintainer "florian.stosse@safrangroup.com"
 LABEL lastupdate "27-01-2021"
