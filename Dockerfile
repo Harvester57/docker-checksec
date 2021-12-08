@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/_/python
-FROM python:3.10.1-bullseye
+FROM python:3.7.12-bullseye
 
 LABEL maintainer "florian.stosse@safrangroup.com"
 LABEL lastupdate "27-11-2021"
@@ -10,7 +10,7 @@ LABEL license "MIT license"
 RUN \
   apt-get update && \
   apt-get full-upgrade -y && \
-  apt-get install -y --no-install-recommends cmake liblief0
+  apt-get install -y --no-install-recommends cmake
   
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install checksec.py==0.6.2
