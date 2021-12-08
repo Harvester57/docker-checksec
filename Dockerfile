@@ -7,10 +7,5 @@ LABEL author "Florian Stosse"
 LABEL description "Checksec.py v0.6.2, built using Python v3.10 Debian Bullseeye-based image"
 LABEL license "MIT license"
 
-RUN \
-  apt-get update && \
-  apt-get full-upgrade -y && \
-  apt-get install -y --no-install-recommends cmake
-  
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install checksec.py==0.6.2
