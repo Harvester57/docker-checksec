@@ -10,7 +10,7 @@ LABEL license "MIT license"
 RUN \
   apt-get update && \
   apt-get full-upgrade -y && \
-  apt-get install -y --no-install-recommends cmake
+  apt-get install -y --no-install-recommends cmake liblief0
   
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install checksec.py==0.6.2
