@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/_/python
-FROM python:3.7.12-slim-bullseye
+FROM python:3.9.9-slim-bullseye
 
 LABEL maintainer "florian.stosse@safrangroup.com"
 LABEL lastupdate "08-12-2021"
