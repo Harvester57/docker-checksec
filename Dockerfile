@@ -16,3 +16,5 @@ USER appuser
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
     pip3 install checksec.py==0.6.2 --user
+    
+ENV PATH="/home/appuser/.local/bin:${PATH}"
