@@ -12,4 +12,4 @@ RUN groupadd -g 999 appuser && \
 USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN pip3 install checksec.py==0.6.2
+RUN pip3 install checksec.py==0.6.2 --user
