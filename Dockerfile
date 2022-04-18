@@ -8,7 +8,7 @@ LABEL description "Checksec.py v0.6.2, built using Python v3.7.13 Debian Bullsey
 LABEL license "MIT license"
 
 RUN groupadd -g 999 appuser && \
-    useradd -r -u 999 -g appuser appuser && \
+    useradd -r -d /home/appuser -u 999 -g appuser appuser && \
     chown -R appuser:appuser /home/appuser
 USER appuser
 
