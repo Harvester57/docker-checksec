@@ -11,10 +11,9 @@ RUN groupadd -g 999 appuser && \
     mkdir -p /home/appuser && \
     useradd -r -d /home/appuser -u 999 -g appuser appuser && \
     chown -R appuser:appuser /home/appuser
+ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
     pip3 install checksec.py==0.6.2 --user
-    
-ENV PATH="/home/appuser/.local/bin:${PATH}"
