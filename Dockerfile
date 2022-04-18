@@ -8,8 +8,10 @@ LABEL description "Checksec.py v0.6.2, built using Python v3.7.13 Debian Bullsey
 LABEL license "MIT license"
 
 RUN groupadd -g 999 appuser && \
-    useradd -r -u 999 -g appuser appuser
+    useradd -r -u 999 -g appuser appuser && \
+    chown -R appuser:appuser /home/appuser
 USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN pip3 install checksec.py==0.6.2 --user
+RUN sudo pip3 install --upgrade pip3 &&\
+    pip3 install checksec.py==0.6.2 --user
