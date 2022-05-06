@@ -13,7 +13,7 @@ RUN groupadd -g 999 appuser && \
     chown -R appuser:appuser /home/appuser
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN ls -ailh ${{ env.WORKSPACE }} && pip3 install --upgrade pip &&\
+RUN pwd && pip3 install --upgrade pip &&\
     pip3 install -r "$GITHUB_WORKSPACE"/requirements.txt
     
 ENV PATH="/home/appuser/.local/bin:${PATH}"
