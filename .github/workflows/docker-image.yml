@@ -22,5 +22,6 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v3
         with:
+          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/checksec:latest
