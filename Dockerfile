@@ -7,7 +7,7 @@ LABEL author "Florian Stosse"
 LABEL description "Checksec.py v0.6.2, built using Python v3.7.13 Debian Bullseye-based image"
 LABEL license "MIT license"
 
-RUN ls -ailh
+RUN echo $GITHUB_WORKSPACE
 
 RUN groupadd -g 999 appuser && \
     mkdir -p /home/appuser && \
