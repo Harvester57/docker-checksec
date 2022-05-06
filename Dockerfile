@@ -17,5 +17,5 @@ ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN ls -ailh && pip3 install --upgrade pip &&\
-    pip3 install -r requirements.txt --user
+RUN ls -ailh /home/runner/work/docker-checksec/docker-checksec && pip3 install --upgrade pip &&\
+    pip3 install -r /home/runner/work/docker-checksec/docker-checksec/requirements.txt --user
