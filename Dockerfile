@@ -2,7 +2,7 @@
 FROM python:3.7.13-slim-bullseye
 
 LABEL maintainer "florian.stosse@safrangroup.com"
-LABEL lastupdate "2022-04-18"
+LABEL lastupdate "2022-05-06"
 LABEL author "Florian Stosse"
 LABEL description "Checksec.py v0.6.2, built using Python v3.7.13 Debian Bullseye-based image"
 LABEL license "MIT license"
