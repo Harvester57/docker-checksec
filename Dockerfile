@@ -15,5 +15,5 @@ ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN pip3 install --upgrade pip &&\
+RUN ls -ailh && pip3 install --upgrade pip &&\
     pip3 install -r requirements.txt --user
