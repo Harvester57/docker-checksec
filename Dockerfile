@@ -16,4 +16,4 @@ USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
-    pip3 install -r $GITHUB_WORKSPACE\requirements.txt --user
+    pip3 install -r $GITHUB_WORKSPACE/requirements.txt --user
