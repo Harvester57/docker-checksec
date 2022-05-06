@@ -21,8 +21,6 @@ jobs:
         name: Build and push
         id: docker_build
         uses: docker/build-push-action@v3
-        env:
-          WORKSPACE: $GITHUB_WORKSPACE
         with:
           context: .
           push: true
