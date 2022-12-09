@@ -14,7 +14,7 @@ RUN groupadd -g 999 appuser && \
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pwd && pip3 install --upgrade pip &&\
-    pip3 install -r "$GITHUB_WORKSPACE"/requirements.txt
+    pip3 install checksec.py==0.6.2
     
 ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
