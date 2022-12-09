@@ -7,14 +7,13 @@ LABEL author "Florian Stosse"
 LABEL description "Checksec.py v0.6.2, built using Python v3.11.1 Debian Bullseye-based image"
 LABEL license "MIT license"
 
-RUN groupadd -g 999 appuser && \
+RUN addgroup -g 666 appuser && \
     mkdir -p /home/appuser && \
-    useradd -r -d /home/appuser -u 999 -g appuser appuser && \
+    adduser -D -h /home/appuser -u 666 -G appuser appuser && \
     chown -R appuser:appuser /home/appuser
-
-# Cf. https://pypi.org/project/checksec.py/
-RUN pwd && pip3 install --upgrade pip &&\
-    pip3 install checksec.py==0.6.2
-    
 ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
+
+# Cf. https://pypi.org/project/checksec.py/
+RUN pip3 install --upgrade pip &&\
+    pip3 install checksec.py==0.6.2 --user
