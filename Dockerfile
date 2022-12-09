@@ -1,10 +1,10 @@
 # Cf. https://hub.docker.com/_/python
-FROM python:3.7.15-slim-bullseye
+FROM python:3.11.1-slim-bullseye
 
 LABEL maintainer "florian.stosse@safrangroup.com"
-LABEL lastupdate "2022-05-06"
+LABEL lastupdate "2022-12-09"
 LABEL author "Florian Stosse"
-LABEL description "Checksec.py v0.6.2, built using Python v3.7.13 Debian Bullseye-based image"
+LABEL description "Checksec.py v0.6.2, built using Python v3.11.1 Debian Bullseye-based image"
 LABEL license "MIT license"
 
 RUN groupadd -g 999 appuser && \
