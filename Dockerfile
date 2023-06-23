@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/_/python
-FROM python:3.11.4-alpine3.18
+FROM python:3.11.4-bookworm
 
 LABEL maintainer "florian.stosse@safrangroup.com"
 LABEL lastupdate "2022-12-09"
