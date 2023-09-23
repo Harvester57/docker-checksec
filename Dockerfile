@@ -2,9 +2,9 @@
 FROM python:3.11.5-bookworm
 
 LABEL maintainer "florian.stosse@safrangroup.com"
-LABEL lastupdate "2022-12-09"
+LABEL lastupdate "2023-09-23"
 LABEL author "Florian Stosse"
-LABEL description "Checksec.py v0.7.1, built using Python v3.11.4 Alpine-based image"
+LABEL description "Checksec.py v0.7.1, built using Python v3.11.5 Debian based image"
 LABEL license "MIT license"
 
 RUN addgroup -g 666 appuser && \
