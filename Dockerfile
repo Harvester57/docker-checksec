@@ -9,4 +9,4 @@ LABEL license "MIT license"
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
-    pip3 install checksec.py==0.7.1 --user
+    pip3 install checksec.py==0.7.0
