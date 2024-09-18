@@ -2,11 +2,11 @@
 FROM python:3.11.10-alpine3.20
 
 LABEL maintainer "florian.stosse@gmail.com"
-LABEL lastupdate "2024-09-15"
+LABEL lastupdate "2024-09-18"
 LABEL author "Florian Stosse"
-LABEL description "Checksec.py v0.7.3, built using Python v3.11.10 Alpine based image"
+LABEL description "Checksec.py v0.7.4, built using Python v3.11.10 Alpine based image"
 LABEL license "MIT license"
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
-    pip3 install checksec.py==0.7.3 --user
+    pip3 install checksec.py==0.7.4 --user
