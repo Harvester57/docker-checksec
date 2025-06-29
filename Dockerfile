@@ -19,4 +19,4 @@ USER appuser
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
-    pip3 install checksec.py==0.7.4 --user
+    pip3 install checksec.py==0.7.4 --user --no-cache-dir
