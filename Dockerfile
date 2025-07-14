@@ -16,7 +16,8 @@ RUN addgroup -g 666 appuser && \
     chown -R appuser:appuser /home/appuser
 ENV PATH="/home/appuser/.local/bin:${PATH}"
 USER appuser
+COPY requirements.txt .
 
 # Cf. https://pypi.org/project/checksec.py/
 RUN pip3 install --upgrade pip &&\
-    pip3 install checksec.py==0.7.4 --user --no-cache-dir
+    pip3 install -r requirements.txt --user --no-cache-dir
