@@ -19,5 +19,10 @@ USER appuser
 COPY requirements.txt .
 
 # Cf. https://pypi.org/project/checksec.py/
-RUN pip3 install --upgrade pip &&\
-    pip3 install -r requirements.txt --user --no-cache-dir
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt --user --no-cache-dir
+
+# Test run
+RUN checksec --help
+
+ENTRYPOINT [ "checksec" ]
