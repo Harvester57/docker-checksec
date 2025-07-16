@@ -1,0 +1,19 @@
+# Cf. https://hub.docker.com/_/python
+FROM python:windowsservercore-ltsc2025@sha256:6f76c61f8896b351da23c13c56a752a46e1958491262e013910d54be5c11d482
+
+LABEL maintainer="florian.stosse@gmail.com"
+LABEL lastupdate="2025-07-17"
+LABEL author="Florian Stosse"
+LABEL description="Checksec.py v0.7.5, built using Python v3.13 Alpine based image"
+LABEL license="MIT license"
+
+COPY requirements.txt .
+
+# Cf. https://pypi.org/project/checksec.py/
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt --user --no-cache-dir
+
+# Test run
+RUN checksec --help
+
+ENTRYPOINT [ "checksec" ]
