@@ -58,6 +58,7 @@ jobs:
           tags: localbuild/testimage:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          file: Dockerfile.linux
       -
         name: Generate SBOM and upload dependency results
         uses: anchore/sbom-action@7b36ad622f042cab6f59a75c2ac24ccb256e9b45 # v0.20.4
@@ -68,7 +69,6 @@ jobs:
           dependency-snapshot: true
           format: cyclonedx-json
           upload-artifact: true
-          file: Dockerfile.linux
       -
         name: Scan SBOM
         uses: anchore/scan-action@df395807f4554463d4455b8047cf58e37b6acaae # v6.5.0
