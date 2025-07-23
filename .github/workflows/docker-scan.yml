@@ -58,7 +58,6 @@ jobs:
           tags: localbuild/testimage:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          file: Dockerfile.linux
       -
         name: Generate SBOM and upload dependency results
         uses: anchore/sbom-action@7b36ad622f042cab6f59a75c2ac24ccb256e9b45 # v0.20.4
