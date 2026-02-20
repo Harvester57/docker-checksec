@@ -32,6 +32,6 @@ COPY --from=builder /checksec/venv /venv
 ENV PATH="/venv/bin:$PATH"
 
 # Test run
-RUN checksec --help
+RUN python3 -m /venv/bin/cheksec --help
 
-ENTRYPOINT [ "checksec" ]
+ENTRYPOINT [ "python3", "/venv/bin/cheksec" ]
