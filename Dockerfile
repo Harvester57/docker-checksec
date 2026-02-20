@@ -1,26 +1,35 @@
-# Cf. https://hub.docker.com/_/python
-FROM python:3.15.0a5-alpine@sha256:e961120e292af1c08b9b45c3dd289d2fe09bb04515ba17a1be6ae86b9ea6e713
+FROM dhi.io/python:3-alpine3.23-dev@sha256:2069ad97587fb9356c4b736be1839b182ca346eb193c14b5f53f8822eb1af62c AS builder
+
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris"
+
+WORKDIR /checksec
+COPY requirements.txt .
+RUN python -m venv venv
+ENV PATH="/checksec/venv/bin:$PATH"
+
+RUN pip install -r /checksec/requirements.txt --no-cache-dir
+
+FROM dhi.io/python:3-alpine3.23@sha256:103fa51b0bb61180edb7fc04cf41a63362b40764d3a06c88a099a62718a6bcd6
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-07-17"
+LABEL lastupdate="2026-02-20"
 LABEL author="Florian Stosse"
-LABEL description="Checksec.py v0.7.5, built using Python v3.13 Alpine based image"
+LABEL description="Checksec.py v0.7.5, built using Docker Hardened Image Python v3.23 Alpine based image"
 LABEL license="MIT license"
 
-RUN apk update && \
-    apk upgrade --available
+WORKDIR /venv
 
-RUN addgroup -g 666 appuser && \
-    mkdir -p /home/appuser && \
-    adduser -D -h /home/appuser -u 666 -G appuser appuser && \
-    chown -R appuser:appuser /home/appuser
-ENV PATH="/home/appuser/.local/bin:${PATH}"
-USER appuser
-COPY requirements.txt .
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris"
 
-# Cf. https://pypi.org/project/checksec.py/
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt --user --no-cache-dir
+COPY --from=builder /checksec/venv /venv
+
+ENV PATH="/venv/bin:$PATH"
 
 # Test run
 RUN checksec --help
